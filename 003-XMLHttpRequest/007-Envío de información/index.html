@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <title>Aprendiendo AJAX</title>
+    </head>
+    <body>
+        <script>
+            const Peticion = new XMLHttpRequest();
+            const ruta = "servidor.php";
+            
+            var datos = 4;
+            var nuevaruta = ruta+"?numero="+datos
+            Peticion.open("GET",nuevaruta);
+            
+            Peticion.send("data="+datos);
+            
+            Peticion.onreadystatechange = function(e){
+                if(Peticion.status == 200){
+                    console.log(Peticion.responseText);
+                }else{
+                    console.error("Error:"+Peticion.status)
+                }
+            }
+        </script>
+    </body>
+</html>

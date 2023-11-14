@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <title>Aprendiendo AJAX</title>
+    </head>
+    <body>
+        <input type="text" id="campo">
+        <button>Calcula</button>
+        <script>
+            const Peticion = new XMLHttpRequest();
+            const ruta = "servidor.php";
+            document.querySelector("button").onclick = function(){
+                var datos = document.getElementById("campo").value;
+                var nuevaruta = ruta+"?numero="+datos
+                Peticion.open("GET",nuevaruta);
+                Peticion.send("data="+datos);
+            }
+            
+            Peticion.onreadystatechange = function(e){
+                if(Peticion.readyState == 4){
+                    if(Peticion.status == 200){
+                        console.log(Peticion.responseText);
+                    }else{
+                        console.error("Error:"+Peticion.status)
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

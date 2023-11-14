@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <title>Aprendiendo AJAX</title>
+    </head>
+    <body>
+        <script>
+            const Peticion = new XMLHttpRequest();
+            const ruta = "servidor.php";
+            Peticion.open("GET",ruta);
+            Peticion.send();
+            
+            Peticion.onreadystatechange = function(e){
+                console.log("el estado de la conexión es: "+Peticion.readyState)
+                console.log("el codigo de la conexión es: "+Peticion.status)
+                console.log(Peticion.responseText);
+            }
+        </script>
+    </body>
+</html>
