@@ -1,0 +1,19 @@
+El código HTML y JavaScript que has proporcionado crea una página web con un campo de entrada (`<input type="text" id="campo">`) donde se espera que el usuario ingrese un número y un botón (`<button>Calcula</button>`) para iniciar una acción.
+
+Aquí están los cambios y el flujo de trabajo del código:
+
+1. **Interfaz de usuario HTML:**
+   - Se ha agregado un campo de entrada de texto (`<input type="text" id="campo">`) que se utiliza para ingresar un número.
+   - Se ha añadido un botón (`<button>Calcula</button>`) que se utiliza para realizar una acción cuando se hace clic.
+
+2. **JavaScript:**
+   - Se ha asignado un evento `onclick` al botón para capturar el clic del usuario.
+   - Cuando se hace clic en el botón, se ejecuta la función asociada.
+   - En esta función:
+     - Se obtiene el valor del campo de entrada de texto con `document.getElementById("campo").value` y se almacena en la variable `datos`.
+     - Se crea una nueva URL concatenando la variable `ruta` (que apunta a "servidor.php") con el valor ingresado en el campo de entrada de texto como un parámetro de consulta (`"servidor.php?numero="+datos`).
+     - Se utiliza `Peticion.open("GET", nuevaruta)` para abrir una solicitud GET al servidor utilizando la URL construida.
+     - Se intenta enviar datos a través de la solicitud usando `Peticion.send("data="+datos)`. Sin embargo, en una solicitud GET, los datos no se envían típicamente a través del cuerpo de la solicitud, sino como parte de la URL en la cadena de consulta. En este caso, el envío de datos a través de `Peticion.send("data="+datos)` no tendría efecto en una solicitud GET.
+   - Se ha establecido un evento `onreadystatechange` para el objeto `XMLHttpRequest`, donde se verifica si la solicitud ha finalizado (`Peticion.readyState == 4`) y luego se comprueba si el código de estado de la respuesta es `200` (OK) para mostrar la respuesta en la consola, o muestra un mensaje de error en caso contrario.
+
+En general, este código HTML y JavaScript intenta capturar un número ingresado por el usuario, enviarlo al servidor a través de una solicitud GET, y mostrar la respuesta del servidor en la consola del navegador si la solicitud se completa con éxito. Sin embargo, hay un error en el intento de enviar datos a través de `Peticion.send()` en una solicitud GET, ya que los datos en una solicitud GET normalmente se pasan a través de la URL en la cadena de consulta, no en el cuerpo de la solicitud.

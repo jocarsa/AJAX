@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <title>Aprendiendo fetch</title>
+        <script>
+            window.onload = function(){
+                fetch("usuarios2.json")
+                    .then(function(response){
+                        return response.json()
+                    })
+                .then(function(datos){
+                    console.log(datos)
+                })
+            }
+        </script>
+    </head>
+    <body>
+    
+        
+    </body>
+</html>

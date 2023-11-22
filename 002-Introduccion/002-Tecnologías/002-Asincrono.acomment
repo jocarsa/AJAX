@@ -1,0 +1,7 @@
+En el contexto de la programación y las operaciones en computación, "asincrónico" se refiere a un estilo de ejecución en el que las tareas no se realizan en secuencia, una después de la otra de manera sincrónica (o síncrona), sino que pueden ejecutarse simultáneamente o en un orden diferente al que fueron iniciadas.
+
+En términos más simples, en un proceso asíncrono, una tarea no tiene que esperar a que otra tarea se complete para empezar o continuar su ejecución. En cambio, puede continuar su trabajo mientras otras tareas se están llevando a cabo en paralelo o mientras espera la finalización de alguna operación que consume tiempo, como la obtención de datos de un servidor.
+
+En el contexto de JavaScript y AJAX, cuando se habla de operaciones asíncronas, se refiere a que el código puede enviar una solicitud al servidor y continuar ejecutándose sin tener que esperar la respuesta del servidor. Una vez que la respuesta esté disponible, se manejará a través de una función callback o utilizando promesas/async-await en JavaScript, permitiendo así la continuidad de otras operaciones mientras se espera la respuesta del servidor.
+
+Esta capacidad de realizar múltiples tareas simultáneamente o de manera no bloqueante es fundamental para la construcción de aplicaciones web modernas y responsivas, ya que permite manejar operaciones intensivas en recursos (como solicitudes a servidores, lectura/escritura de archivos, etc.) sin bloquear el hilo de ejecución principal y sin interrumpir la experiencia del usuario.

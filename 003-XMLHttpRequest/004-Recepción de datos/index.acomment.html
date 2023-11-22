@@ -1,0 +1,13 @@
+En esta versión del código, se ha añadido un nuevo bloque de código JavaScript:
+
+```javascript
+Peticion.onreadystatechange = function(e){
+    console.log(Peticion.responseText);
+}
+```
+
+Este bloque se encarga de manejar el evento `onreadystatechange` del objeto `XMLHttpRequest`. El evento `onreadystatechange` se dispara cada vez que cambia el estado de la solicitud.
+
+La función asignada a `onreadystatechange` verifica el estado de la solicitud a través de `Peticion.readyState`. Cuando el estado es `4` (significa que la solicitud ha sido completada y la respuesta está lista), se imprime en la consola del navegador la respuesta obtenida desde el servidor mediante `Peticion.responseText`.
+
+En resumen, esta adición al código permite capturar la respuesta del servidor cuando la solicitud AJAX se completa, mostrando el contenido de la respuesta en la consola del navegador.

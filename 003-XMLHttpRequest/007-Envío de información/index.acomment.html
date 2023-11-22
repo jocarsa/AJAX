@@ -1,0 +1,11 @@
+En esta última versión del código, se han introducido varios cambios en relación con la versión anterior:
+
+1. Se ha creado una variable `datos` con el valor `4`. Luego se ha concatenado este valor a la variable `ruta` para formar una nueva URL `nuevaruta` mediante la adición de un parámetro de consulta `numero=4`. Esto sugiere la intención de enviar un parámetro llamado "numero" con el valor `4` al servidor a través de la solicitud GET.
+
+2. Al llamar al método `Peticion.open("GET", nuevaruta)`, se usa la nueva URL `nuevaruta` para realizar la solicitud GET con el parámetro de consulta "numero=4".
+
+3. Se intenta enviar datos mediante el método `Peticion.send("data="+datos)`, proporcionando un cuerpo de solicitud. Sin embargo, en una solicitud GET, los datos no se envían a través del cuerpo de la solicitud, sino que se envían como parte de la URL en la cadena de consulta. En este caso, parece haber un intento de enviar los datos también en el cuerpo de la solicitud, lo cual es inusual para una solicitud GET.
+
+4. El bloque `onreadystatechange` sigue verificando si el código de estado de la respuesta es `200` y muestra la respuesta en la consola si la solicitud se completa correctamente. Si hay un error, muestra un mensaje de error en la consola con el código de estado.
+
+En resumen, este código parece estar intentando pasar un parámetro a través de la URL usando una solicitud GET, pero hay una confusión al intentar enviar datos a través del cuerpo de la solicitud en una solicitud GET, lo cual no es típico ni necesario para este tipo de solicitud HTTP.

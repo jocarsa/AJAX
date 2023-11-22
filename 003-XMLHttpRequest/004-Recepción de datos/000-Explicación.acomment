@@ -1,0 +1,37 @@
+El evento `onreadystatechange` es un aspecto fundamental del objeto `XMLHttpRequest` que permite monitorear el estado de la solicitud y definir acciones específicas para cada cambio de estado.
+
+Cuando se realiza una solicitud utilizando `XMLHttpRequest`, el estado de la solicitud pasa por diferentes fases o estados. El evento `onreadystatechange` se activa cada vez que cambia el estado de la solicitud. Los diferentes estados posibles se representan mediante números del 0 al 4:
+
+- `0`: `UNSENT` (No inicializado): La instancia de `XMLHttpRequest` ha sido creada, pero el método `open()` no ha sido llamado todavía.
+- `1`: `OPENED` (Abierto): El método `open()` ha sido llamado.
+- `2`: `HEADERS_RECEIVED` (Cabeceras recibidas): La solicitud ha sido enviada y las cabeceras de respuesta han sido recibidas.
+- `3`: `LOADING` (Cargando): La respuesta está siendo procesada; se están recibiendo datos parciales.
+- `4`: `DONE` (Completado): La operación está completa; la solicitud ha finalizado satisfactoriamente.
+
+El evento `onreadystatechange` se dispara cada vez que cambia el estado de la solicitud, permitiendo así ejecutar código en respuesta a estos cambios. Para utilizar este evento, se puede definir una función que se ejecutará cuando cambie el estado de la solicitud. Por ejemplo:
+
+```javascript
+var request = new XMLHttpRequest();
+
+request.onreadystatechange = function() {
+  if (request.readyState === XMLHttpRequest.DONE) {
+    if (request.status === 200) {
+      // La solicitud se ha completado exitosamente
+      console.log(request.responseText); // Se pueden procesar los datos recibidos
+    } else {
+      // Hubo un error en la solicitud
+      console.error('Error en la solicitud: ' + request.status);
+    }
+  }
+};
+
+// Configurar la solicitud
+request.open('GET', 'https://api.example.com/data', true);
+
+// Enviar la solicitud
+request.send();
+```
+
+En este ejemplo, se asigna una función al evento `onreadystatechange` del objeto `XMLHttpRequest`. Dentro de esta función, se verifica el estado actual de la solicitud (`readyState`) para determinar si la solicitud ha finalizado (`XMLHttpRequest.DONE`, estado 4). Si el estado es 4, se verifica el estado de la respuesta (`status`) para manejar los datos recibidos o los posibles errores de la solicitud.
+
+El evento `onreadystatechange` es útil para ejecutar código en diferentes etapas del ciclo de vida de una solicitud `XMLHttpRequest`, lo que permite tomar acciones específicas según el estado actual de la solicitud y la respuesta recibida del servidor.

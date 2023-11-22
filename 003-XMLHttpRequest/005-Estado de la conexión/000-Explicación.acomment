@@ -1,0 +1,48 @@
+Claro, `readyState` y `status` son propiedades importantes del objeto `XMLHttpRequest` que se utilizan para monitorear el estado de una solicitud HTTP y obtener información sobre la respuesta recibida del servidor.
+
+1. **`readyState`:** 
+   `readyState` es una propiedad que indica el estado actual de la solicitud. Puede tener valores del 0 al 4, representando diferentes etapas del ciclo de vida de la solicitud:
+   - `0` (`UNSENT`): El objeto `XMLHttpRequest` ha sido creado, pero el método `open()` no ha sido invocado todavía.
+   - `1` (`OPENED`): El método `open()` ha sido llamado, indicando que la solicitud está preparada para ser enviada.
+   - `2` (`HEADERS_RECEIVED`): La solicitud ha sido enviada y las cabeceras de la respuesta están disponibles.
+   - `3` (`LOADING`): Se están recibiendo datos; la respuesta está siendo procesada.
+   - `4` (`DONE`): La operación está completa; la solicitud ha finalizado.
+
+   Por ejemplo, se puede utilizar `request.readyState` en un control `onreadystatechange` para ejecutar acciones según el estado de la solicitud, como se mostró en ejemplos anteriores.
+
+2. **`status`:** 
+   `status` es otra propiedad del objeto `XMLHttpRequest` que indica el código de estado HTTP devuelto por el servidor como respuesta a la solicitud. Los códigos de estado más comunes son:
+   - `200`: OK (éxito)
+   - `201`: Created (creado)
+   - `400`: Bad Request (solicitud incorrecta)
+   - `401`: Unauthorized (no autorizado)
+   - `404`: Not Found (no encontrado)
+   - `500`: Internal Server Error (error interno del servidor), entre otros.
+
+   Al utilizar `request.status`, se puede obtener el código de estado de la respuesta del servidor dentro de una función asociada al evento `onreadystatechange`. Por ejemplo:
+
+   ```javascript
+   var request = new XMLHttpRequest();
+
+   request.onreadystatechange = function() {
+     if (request.readyState === XMLHttpRequest.DONE) {
+       if (request.status === 200) {
+         // La solicitud se ha completado exitosamente
+         console.log(request.responseText); // Se pueden procesar los datos recibidos
+       } else {
+         // Hubo un error en la solicitud
+         console.error('Error en la solicitud: ' + request.status);
+       }
+     }
+   };
+
+   // Configurar la solicitud
+   request.open('GET', 'https://api.example.com/data', true);
+
+   // Enviar la solicitud
+   request.send();
+   ```
+
+   En este ejemplo, se verifica el valor de `request.status` después de que la solicitud haya alcanzado el estado `XMLHttpRequest.DONE` para manejar los datos recibidos o posibles errores basados en el código de estado HTTP devuelto por el servidor.
+
+Estas propiedades (`readyState` y `status`) son fundamentales para monitorear el progreso y el resultado de una solicitud `XMLHttpRequest` y tomar decisiones en consecuencia dentro del código JavaScript.

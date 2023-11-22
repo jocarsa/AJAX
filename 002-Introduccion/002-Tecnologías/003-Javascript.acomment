@@ -1,0 +1,17 @@
+JavaScript es un lenguaje de programación ampliamente utilizado en el desarrollo web. Es un lenguaje interpretado, de alto nivel y orientado a objetos que se utiliza principalmente para agregar interactividad y funcionalidades dinámicas a las páginas web.
+
+Creado originalmente por Brendan Eich en 1995 en Netscape, JavaScript se ha convertido en un componente esencial del desarrollo web moderno. No debe confundirse con Java, ya que son lenguajes completamente diferentes y no están relacionados.
+
+Algunas características clave de JavaScript son:
+
+1. **Lenguaje interpretado:** JavaScript no requiere un proceso de compilación antes de su ejecución. Los navegadores web pueden interpretar directamente el código JavaScript y ejecutarlo en el cliente (navegador).
+
+2. **Dinamismo y versatilidad:** Es un lenguaje versátil que se puede utilizar tanto para el desarrollo del lado del cliente (front-end) como para el del lado del servidor (back-end) a través de entornos como Node.js.
+
+3. **Interactividad en el navegador:** JavaScript se utiliza para manipular el DOM (Document Object Model) de una página web, permitiendo agregar, modificar y eliminar elementos y contenido de la página en tiempo real, lo que permite crear experiencias interactivas y dinámicas para los usuarios.
+
+4. **Soporte para diferentes paradigmas de programación:** JavaScript admite programación orientada a objetos, programación funcional y programación imperativa.
+
+5. **Gran comunidad y ecosistema:** Existen muchas bibliotecas, frameworks y herramientas construidas sobre JavaScript, como jQuery, React, Angular, Vue.js, Express.js, entre otras, que facilitan el desarrollo y la implementación de aplicaciones web complejas.
+
+JavaScript se utiliza para una variedad de propósitos en el desarrollo web, incluyendo la validación de formularios, animaciones, manipulación del DOM, creación de juegos, desarrollo de aplicaciones web interactivas, comunicación con servidores mediante AJAX, entre otros. Su versatilidad y su capacidad para trabajar junto con HTML y CSS lo convierten en un componente esencial en el desarrollo moderno de aplicaciones web.

@@ -1,0 +1,11 @@
+En la técnica de AJAX (Asynchronous JavaScript and XML), a pesar de que XML está en el nombre, se pueden utilizar diferentes tecnologías además de XML para intercambiar datos entre el cliente y el servidor. Estas tecnologías son utilizadas para transmitir datos en formatos más ligeros, eficientes y fáciles de manipular que XML. Algunos de estos formatos incluyen:
+
+1. **JSON (JavaScript Object Notation):** Es el formato más comúnmente utilizado en AJAX en lugar de XML. JSON es ligero, fácil de leer y escribir para humanos, y fácil de parsear y generar en JavaScript. Su sintaxis se asemeja mucho a la notación de objetos en JavaScript, lo que lo hace muy conveniente para el intercambio de datos entre el servidor y el cliente.
+
+2. **Textos planos:** A veces, las respuestas AJAX pueden ser simplemente texto plano (como en el caso de recibir una respuesta de un servicio web que devuelve texto simple). Estos datos pueden ser procesados directamente en el cliente.
+
+3. **HTML:** En algunas situaciones, especialmente al cargar contenido dinámico, se pueden enviar fragmentos de código HTML como respuesta a una solicitud AJAX. Estos fragmentos de HTML pueden ser directamente insertados en la página web para actualizar su contenido.
+
+4. **YAML (YAML Ain't Markup Language):** Aunque menos común que JSON, YAML es otro formato de serialización de datos que se puede utilizar en lugar de XML. Tiene una sintaxis legible por humanos y es utilizado para representar datos estructurados.
+
+En resumen, aunque AJAX originalmente se asoció con XML debido al nombre, la tecnología AJAX puede utilizar una variedad de formatos de intercambio de datos, y XML no es la única opción. JSON se ha convertido en la opción más popular debido a su ligereza, facilidad de uso y su capacidad para ser manipulado directamente en JavaScript sin conversiones complejas. Sin embargo, la elección del formato de intercambio de datos dependerá de las necesidades específicas de la aplicación y las preferencias del desarrollador.

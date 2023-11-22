@@ -1,0 +1,14 @@
+En esta nueva versión del código, se han realizado los siguientes cambios con respecto a la versión anterior:
+
+1. Se han agregado dos líneas nuevas dentro de la función asignada al evento `onreadystatechange` del objeto `XMLHttpRequest`:
+
+   ```javascript
+   console.log("el estado de la conexión es: " + Peticion.readyState);
+   console.log("el codigo de la conexión es: " + Peticion.status);
+   ```
+
+   Estas líneas imprimen en la consola del navegador el estado actual de la conexión (`Peticion.readyState`) y el código de estado de la respuesta del servidor (`Peticion.status`).
+
+2. Además de mostrar el contenido de la respuesta (`Peticion.responseText`), ahora se imprime en la consola del navegador información adicional sobre el estado y el código de la conexión.
+
+Estos cambios proporcionan una mayor información en la consola del navegador sobre el estado de la conexión y el código de la respuesta recibida del servidor, lo que puede ser útil para el diagnóstico y depuración al trabajar con solicitudes AJAX.

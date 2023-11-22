@@ -1,0 +1,17 @@
+AJAX significa Asynchronous JavaScript and XML (JavaScript asíncrono y XML). Es una técnica de desarrollo web que permite actualizar parte de una página web sin necesidad de recargarla por completo. AJAX permite enviar y recibir datos del servidor de forma asíncrona, lo que significa que se pueden realizar acciones en una página web sin interrumpir la experiencia del usuario.
+
+Las aplicaciones web tradicionales cargan una página completa cada vez que se realiza una acción, como enviar un formulario o solicitar información del servidor. En cambio, AJAX permite enviar solicitudes al servidor en segundo plano sin recargar la página por completo. Esto se logra utilizando el objeto `XMLHttpRequest` en JavaScript para enviar solicitudes HTTP al servidor y manipular los datos devueltos.
+
+Aunque el nombre hace referencia a XML, en la práctica, AJAX puede utilizar varios formatos de datos, como JSON (JavaScript Object Notation), que es más común debido a su ligereza y facilidad de manejo en comparación con XML.
+
+Las ventajas principales de AJAX son:
+
+1. **Interactividad:** Permite crear aplicaciones web más dinámicas y responsivas al usuario, ya que puede actualizar partes específicas de la página sin necesidad de recargarla completamente.
+
+2. **Mejora en la experiencia del usuario:** Al evitar recargar toda la página, se reduce el tiempo de espera percibido por el usuario, lo que mejora la experiencia de navegación.
+
+3. **Eficiencia:** Al realizar solicitudes al servidor de forma asíncrona, se puede optimizar el uso de los recursos y ancho de banda, ya que solo se actualiza la parte de la página que necesita ser cambiada, en lugar de recargar toda la página.
+
+Ejemplos comunes de uso de AJAX incluyen la carga dinámica de contenido, actualización de información en formularios sin recargar la página, autocompletado en campos de búsqueda y la implementación de chats en tiempo real, entre otros.
+
+Hoy en día, existen bibliotecas y frameworks como jQuery, Axios, Fetch API (nativa de JavaScript), y librerías más modernas como React, Angular y Vue.js, que simplifican la implementación de AJAX y ofrecen funcionalidades adicionales para el manejo de datos y la interfaz de usuario.

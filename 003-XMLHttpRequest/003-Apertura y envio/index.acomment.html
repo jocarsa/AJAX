@@ -1,0 +1,9 @@
+En comparación con la versión anterior del código, se han realizado los siguientes cambios:
+
+1. **Uso de los métodos `open()` y `send()` del objeto `XMLHttpRequest`**:
+   - `Peticion.open("GET", ruta)`: Se utiliza el método `open()` del objeto `XMLHttpRequest` para preparar la solicitud. Aquí se especifica el tipo de solicitud ("GET" en este caso) y la URL de destino para la solicitud, que se toma de la variable `ruta` que contiene la cadena "servidor.php".
+   - `Peticion.send()`: El método `send()` se utiliza para enviar la solicitud HTTP al servidor. En este caso, al no haber ningún manejo posterior, la solicitud se envía pero no se está haciendo nada con la respuesta.
+
+2. **Generación de una solicitud GET al servidor**: Con estos cambios, se ha agregado la funcionalidad para realizar una solicitud GET al servidor, utilizando la ruta especificada ("servidor.php").
+
+Estos cambios permiten enviar una solicitud GET al servidor utilizando `XMLHttpRequest`. Sin embargo, el código aún no maneja la respuesta del servidor ni realiza acciones adicionales una vez que se recibe la respuesta.

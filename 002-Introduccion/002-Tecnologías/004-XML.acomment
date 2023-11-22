@@ -1,0 +1,27 @@
+XML significa "Extensible Markup Language" (Lenguaje de Marcado Extensible) y es un formato de texto que se utiliza para almacenar y transportar datos de manera legible tanto por humanos como por máquinas. Fue diseñado para ser autodescriptivo y permitir la estructuración de información de una manera jerárquica y flexible.
+
+Algunas características importantes de XML son:
+
+1. **Legibilidad:** Los documentos XML están diseñados para ser legibles tanto por humanos como por máquinas, ya que utilizan etiquetas personalizadas y estructuras jerárquicas que facilitan la comprensión de la información contenida en ellos.
+
+2. **Extensibilidad:** Permite definir etiquetas y estructuras de datos personalizadas, lo que lo hace muy flexible y adecuado para representar diferentes tipos de información de manera específica para un propósito determinado.
+
+3. **Independencia de plataforma y lenguaje:** Al ser un formato de texto, los documentos XML pueden ser interpretados y utilizados por diferentes plataformas y lenguajes de programación.
+
+4. **Usos diversos:** XML se utiliza en una amplia gama de aplicaciones, como intercambio de datos entre sistemas, configuración de software, descripción de datos en lenguajes como RSS y Atom (para sindicación de contenidos), configuración de lenguajes de marcado como XHTML, entre otros.
+
+La estructura básica de un documento XML consiste en elementos que están definidos por etiquetas. Estos elementos pueden contener texto, otros elementos anidados o atributos que describen datos adicionales.
+
+Un ejemplo simple de un documento XML sería:
+
+```xml
+<libro>
+    <titulo>El Señor de los Anillos</titulo>
+    <autor>J.R.R. Tolkien</autor>
+    <genero>Fantasía épica</genero>
+</libro>
+```
+
+Aquí, `<libro>`, `<titulo>`, `<autor>` y `<genero>` son elementos, y el texto dentro de las etiquetas es la información asociada a cada elemento.
+
+Debido a su estructura flexible y legible, XML ha sido ampliamente adoptado en diversas aplicaciones y contextos donde es importante compartir y estructurar datos de manera clara y coherente. Sin embargo, su uso ha disminuido en algunos casos a favor de formatos más ligeros y eficientes en términos de espacio y procesamiento, como JSON (JavaScript Object Notation), especialmente en aplicaciones web y API RESTful debido a su facilidad de uso y procesamiento por parte de los navegadores web y lenguajes de programación como JavaScript.

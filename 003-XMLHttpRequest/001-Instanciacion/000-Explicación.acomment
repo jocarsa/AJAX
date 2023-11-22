@@ -1,0 +1,44 @@
+El objeto `XMLHttpRequest` es una interfaz proporcionada por los navegadores web que permite realizar peticiones HTTP o HTTPS desde una página web hacia un servidor y recibir datos en respuesta, todo esto sin tener que recargar la página. Es ampliamente utilizado en el desarrollo web para realizar solicitudes asíncronas, lo que significa que la ejecución de otras partes de la página web no se detiene mientras se espera la respuesta del servidor.
+
+Este objeto proporciona una forma de comunicación entre el navegador y el servidor, permitiendo enviar diferentes tipos de datos, como texto, XML, JSON, entre otros, y recibir respuestas en diferentes formatos también.
+
+Aquí hay un ejemplo básico de cómo se puede utilizar `XMLHttpRequest` para hacer una solicitud GET:
+
+```javascript
+// Crear una nueva instancia de XMLHttpRequest
+var request = new XMLHttpRequest();
+
+// Configurar una solicitud GET a una URL específica
+request.open('GET', 'https://ejemplo.com/api/datos', true);
+
+// Definir qué hacer cuando se recibe la respuesta
+request.onload = function() {
+  // Verificar el estado de la solicitud
+  if (request.status >= 200 && request.status < 400) {
+    // La solicitud fue exitosa
+    var data = JSON.parse(request.responseText);
+    console.log(data); // Hacer algo con los datos recibidos
+  } else {
+    // Hubo un error en la solicitud
+    console.error('Error en la solicitud: ' + request.status);
+  }
+};
+
+// Manejar posibles errores de red
+request.onerror = function() {
+  console.error('Error de red al intentar hacer la solicitud');
+};
+
+// Enviar la solicitud
+request.send();
+```
+
+En este ejemplo:
+
+- Se crea una instancia de `XMLHttpRequest`.
+- Se configura una solicitud GET a una URL específica (`'https://ejemplo.com/api/datos'`).
+- Se define qué hacer cuando se recibe la respuesta utilizando el evento `onload`.
+- Se manejan los errores de red con el evento `onerror`.
+- Finalmente, se envía la solicitud utilizando el método `send()`.
+
+Es importante tener en cuenta que, aunque `XMLHttpRequest` ha sido ampliamente utilizado, hoy en día existen alternativas más modernas como la API `fetch` y librerías como Axios, que ofrecen una sintaxis más limpia y promesas nativas para manejar las solicitudes HTTP en JavaScript.

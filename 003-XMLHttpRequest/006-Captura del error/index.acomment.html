@@ -1,0 +1,17 @@
+En esta versión del código, se han realizado los siguientes cambios con respecto a la versión anterior:
+
+1. Se ha actualizado la variable `ruta` para apuntar a "servidor2.php" en lugar de "servidor.php". Esto probablemente significa que se está haciendo una solicitud a una ruta diferente en el servidor.
+
+2. Dentro de la función asignada al evento `onreadystatechange` del objeto `XMLHttpRequest`, se ha agregado una condición `if` para comprobar el código de estado de la respuesta del servidor:
+
+   ```javascript
+   if(Peticion.status == 200){
+       console.log(Peticion.responseText);
+   } else {
+       console.error("Error:" + Peticion.status);
+   }
+   ```
+
+   Esta condición verifica si el código de estado de la respuesta (`Peticion.status`) es igual a 200, que es el código estándar para una respuesta exitosa (OK) en HTTP. Si es 200, imprime la respuesta en la consola. En caso contrario, imprime un mensaje de error en la consola que indica el código de estado de la respuesta.
+
+Estos cambios están orientados a manejar de manera más explícita la lógica de manejo de errores o respuestas no exitosas del servidor durante la solicitud AJAX.
