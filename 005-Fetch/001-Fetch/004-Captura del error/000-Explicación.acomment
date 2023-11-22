@@ -1,0 +1,42 @@
+En este nuevo fragmento de código, se ha introducido una importante adición: el método `.catch()`. Este método se utiliza para manejar errores que puedan ocurrir durante la solicitud fetch o el procesamiento de la respuesta. Veamos el análisis detallado:
+
+```html
+<!doctype html>
+<html lang="es">
+    <head>
+        <title>Aprendiendo fetch</title>
+        <script>
+            window.onload = function(){
+                fetch("usuarios2.json")
+                    .then(function(response){
+                        return response.json()
+                    })
+                    .then(function(datos){
+                        console.log(datos)
+                    })
+                    .catch(function(error){
+                        console.log(error)
+                    })
+            }
+        </script>
+    </head>
+    <body>
+    
+        
+    </body>
+</html>
+```
+
+La adición clave es el `.catch()` que se ha colocado después de la cadena de los `.then()`:
+
+```javascript
+.catch(function(error){
+    console.log(error)
+})
+```
+
+El `.catch()` se encarga de capturar cualquier error que pueda ocurrir en la cadena de promesas. Si en alguna etapa de la solicitud fetch, la conversión a JSON o cualquier otra manipulación de datos ocurre un error, este bloque `.catch()` capturará ese error y ejecutará la función proporcionada. En este caso, la función simplemente registra el error en la consola del navegador utilizando `console.log()`.
+
+Incluir un `.catch()` es una buena práctica al trabajar con promesas en JavaScript, ya que permite manejar de manera más controlada y eficiente cualquier error que pueda surgir durante la ejecución del código asíncrono. Esto puede ser útil para depurar problemas o mostrar mensajes de error más descriptivos a los usuarios en caso de fallos en la solicitud de datos.
+
+En resumen, la incorporación del `.catch()` mejora la gestión de posibles errores en el flujo de la solicitud fetch y el procesamiento de la respuesta, brindando la oportunidad de manejar esos errores de manera específica y controlada.

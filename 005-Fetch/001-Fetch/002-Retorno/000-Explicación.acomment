@@ -1,0 +1,58 @@
+En esta versión actualizada del código HTML, se ha introducido una mejora en la gestión de la respuesta obtenida mediante la solicitud fetch. Vamos a analizar los cambios:
+
+```html
+<!doctype html>
+<html lang="es">
+    <head>
+        <title>Aprendiendo fetch</title>
+        <script>
+            window.onload = function(){
+                fetch("usuarios.json")
+                    .then(function(response){
+                        return response.json()
+                    })
+            }
+        </script>
+    </head>
+    <body>
+    
+        
+    </body>
+</html>
+```
+
+La principal novedad se encuentra en la parte del código JavaScript:
+
+```javascript
+fetch("usuarios.json")
+    .then(function(response){
+        return response.json()
+    })
+```
+
+Se ha agregado el método `then()` al final de la llamada a `fetch()`. Esto se usa para manejar la respuesta de la solicitud fetch de una manera más estructurada y asíncrona.
+
+1. `fetch("usuarios.json")`: Realiza la solicitud GET al recurso "usuarios.json" como en la versión anterior.
+
+2. `.then(function(response){ return response.json() })`: Después de realizar la solicitud fetch, se encadena el método `then()` que toma una función como argumento. Esta función maneja la respuesta obtenida de la solicitud. En este caso, la función toma el objeto `response` y llama al método `.json()` en él.
+
+    - `function(response) {...}`: Esta función anónima recibe el objeto `response` como parámetro, que representa la respuesta a la solicitud. Dentro de la función, se llama al método `.json()` en el objeto `response`, que devuelve una promesa que resuelve en la representación en JSON de los datos obtenidos en la respuesta.
+
+Sin embargo, en este código aún falta manejar la promesa devuelta por `response.json()`. En una aplicación real, normalmente se encadenaría otro `.then()` o se utilizaría `async/await` para manejar los datos JSON obtenidos de manera apropiada, como por ejemplo:
+
+```javascript
+fetch("usuarios.json")
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(data) {
+        // Hacer algo con los datos JSON obtenidos, por ejemplo:
+        console.log(data);
+    })
+    .catch(function(error) {
+        // Manejar errores de la solicitud fetch o el proceso de conversión JSON
+        console.error('Error:', error);
+    });
+```
+
+En resumen, la principal diferencia con respecto a la versión anterior del código es la adición del método `then()` para manejar los datos obtenidos en formato JSON de la respuesta de la solicitud fetch.

@@ -1,0 +1,57 @@
+El nuevo código HTML que has proporcionado incluye una solicitud fetch utilizando el método POST a un archivo PHP llamado "comprueba.php" en respuesta al evento `onkeyup` en el campo de entrada.
+
+Aquí está el análisis del código:
+
+```html
+<!doctype html>
+<html lang="es">
+    <head>
+        <title>Aprendiendo fetch</title>
+        <script>
+            var datosjson = []; // Declara una variable para almacenar los datos obtenidos
+
+            window.onload = function(){
+                document.getElementById("usuario").onkeyup = function(){
+                    fetch("comprueba.php", { // Realiza una solicitud POST a "comprueba.php"
+                        method: 'POST', // Utiliza el método POST para enviar datos
+                        headers: {
+                            'Content-Type': 'application/json' // Establece el tipo de contenido como JSON
+                        },
+                        body: JSON.stringify({"clave": "valor"}) // Envía datos en formato JSON
+                    })
+                    .then(function(response){
+                        return response.json(); // Convierte la respuesta a JSON
+                    })
+                    .then(function(datos){
+                        datosjson = datos; // Almacena los datos obtenidos en la variable datosjson
+                        console.log(datos); // Muestra los datos en la consola del navegador
+                    })
+                    .catch(function(error){
+                        console.log(error); // Captura y muestra errores en la consola
+                    });
+                };
+            }
+        </script>
+        <style>
+            .ok { border: 1px solid green; background: rgba(0, 255, 0, 0.2); }
+            .ko { border: 1px solid red; background: rgba(255, 0, 0, 0.2); }
+        </style>
+    </head>
+    <body>
+        <h1>Escoge un usuario para tu aplicación</h1>
+        <input type="text" id="usuario">
+    </body>
+</html>
+```
+
+En este código:
+
+1. Se ha asociado un evento `onkeyup` al campo de entrada con el ID "usuario". Esto significa que cada vez que se suelte una tecla en este campo, se ejecutará la función anónima definida.
+
+2. Dentro de esta función, se realiza una solicitud fetch al archivo "comprueba.php" utilizando el método POST. Se envía un objeto JSON con la clave "clave" y el valor "valor" mediante `JSON.stringify()` en la propiedad `body`.
+
+3. Luego, se encadenan métodos `then()` para manejar la respuesta de la solicitud fetch. Se espera que la respuesta sea un objeto JSON, que luego se almacena en la variable `datosjson` y se muestra en la consola utilizando `console.log()`.
+
+4. También se incluye un `.catch()` para capturar y mostrar cualquier error que pueda ocurrir durante la solicitud.
+
+En resumen, este código permite realizar una solicitud asíncrona a un archivo PHP cuando el usuario escribe en el campo de entrada, enviando datos y manejando la respuesta obtenida utilizando JavaScript y la API fetch.

@@ -1,0 +1,70 @@
+La carga de archivos JSON estáticos utilizando AJAX implica el uso de XMLHttpRequest (XHR) para realizar una solicitud HTTP asíncrona y obtener datos en formato JSON desde un archivo estático en el servidor. Esto puede ser útil cuando se necesita cargar datos predefinidos almacenados en un archivo JSON sin la necesidad de generarlos dinámicamente desde el servidor.
+
+Aquí tienes un ejemplo básico de cómo cargar un archivo JSON estático utilizando AJAX:
+
+HTML:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Carga de Archivo JSON Estático</title>
+</head>
+<body>
+    <button id="loadButton">Cargar Datos JSON</button>
+    <div id="jsonDataDisplay"></div>
+
+    <script>
+        document.getElementById("loadButton").addEventListener("click", function() {
+            // Crear una instancia de XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+
+            // Ruta del archivo JSON estático
+            var url = "datos.json";
+
+            // Configurar la solicitud GET al archivo JSON
+            xhr.open("GET", url, true);
+
+            // Configurar el tipo de respuesta esperada (en este caso, JSON)
+            xhr.responseType = "json";
+
+            // Manejar la carga exitosa de la solicitud
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Acceder a los datos JSON obtenidos
+                    var jsonData = xhr.response;
+
+                    // Mostrar los datos JSON en la página
+                    document.getElementById("jsonDataDisplay").innerHTML = JSON.stringify(jsonData, null, 2);
+                } else {
+                    // Manejar errores si la solicitud no fue exitosa
+                    console.error("Error al cargar el archivo JSON. Código de estado:", xhr.status);
+                }
+            };
+
+            // Manejar errores de red u otros errores
+            xhr.onerror = function() {
+                console.error("Error de red al intentar cargar el archivo JSON.");
+            };
+
+            // Enviar la solicitud
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
+```
+
+En este ejemplo:
+
+1. Se crea un botón con el ID `loadButton` que, al ser presionado, desencadena la carga del archivo JSON.
+
+2. Al hacer clic en el botón, se dispara un evento que crea una instancia de `XMLHttpRequest` para realizar una solicitud GET al archivo JSON estático `datos.json`.
+
+3. Se configura el tipo de respuesta esperada (`xhr.responseType`) como JSON para que el navegador entienda que se trata de un archivo JSON y lo analice automáticamente.
+
+4. Cuando la solicitud se completa (`xhr.onload`), se verifica si la solicitud fue exitosa (`xhr.status === 200`). Si lo fue, se accede a los datos JSON obtenidos (`xhr.response`) y se muestra en la página.
+
+5. Se manejan los errores posibles, como problemas de red o errores en la solicitud, en los eventos `xhr.onerror`.
+
+Asegúrate de que el archivo `datos.json` exista en la misma ubicación que tu archivo HTML y contenga datos JSON válidos. Este código carga y muestra los datos JSON estáticos en la página web una vez que el botón `loadButton` es presionado.
