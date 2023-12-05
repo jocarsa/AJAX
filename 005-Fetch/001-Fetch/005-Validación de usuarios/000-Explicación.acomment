@@ -1,0 +1,71 @@
+El nuevo código HTML que has proporcionado ahora incluye una funcionalidad adicional basada en JavaScript. Vamos a analizarlo:
+
+```html
+<!doctype html>
+<html lang="es">
+    <head>
+        <title>Aprendiendo fetch</title>
+        <script>
+            var datosjson = []; // Declara una variable para almacenar los datos obtenidos del archivo JSON
+
+            window.onload = function(){
+                fetch("usuarios.json")
+                    .then(function(response){
+                        return response.json();
+                    })
+                    .then(function(datos){
+                        datosjson = datos; // Almacena los datos obtenidos del archivo JSON en la variable datosjson
+                        console.log(datos);
+                    })
+                    .catch(function(error){
+                        console.log(error);
+                    });
+
+                document.getElementById("usuario").onkeyup = function(){
+                    let existe = false; // Bandera para verificar si el usuario existe en los datos obtenidos
+
+                    for(let i = 0; i < datosjson.length; i++){
+                        if(datosjson[i].usuario == this.value){
+                            existe = true;
+                        }
+                    }
+
+                    if(existe == false){
+                        this.classList.remove("ko");
+                        this.classList.add("ok");
+                    } else {
+                        this.classList.remove("ok");
+                        this.classList.add("ko");
+                    }
+                };
+            }
+        </script>
+        <style>
+            .ok { border: 1px solid green; background: rgba(0, 255, 0, 0.2); }
+            .ko { border: 1px solid red; background: rgba(255, 0, 0, 0.2); }
+        </style>
+    </head>
+    <body>
+        <h1>Escoge un usuario para tu aplicación</h1>
+        <input type="text" id="usuario">
+    </body>
+</html>
+```
+
+Este código realiza varias acciones:
+
+1. **Solicitud fetch y manipulación de datos JSON:**
+   - Hace una solicitud `fetch` al archivo "usuarios.json" para obtener datos.
+   - Los datos JSON obtenidos se almacenan en la variable `datosjson`.
+   - Si la solicitud se completa correctamente, los datos se imprimen en la consola del navegador.
+
+2. **Interacción con el campo de entrada (`input`):**
+   - El evento `onkeyup` se utiliza para detectar cuando se libera una tecla en el campo de entrada con ID "usuario".
+   - Cada vez que se suelta una tecla en este campo, se activa una función.
+   - Esta función busca si el valor ingresado en el campo coincide con algún usuario dentro de los datos obtenidos del archivo JSON.
+   - Si el usuario existe en los datos, el campo de entrada se resalta en rojo (clase CSS `.ko`); si no existe, se resalta en verde (clase CSS `.ok`).
+
+3. **Estilos CSS:**
+   - Se definen estilos CSS para las clases `.ok` y `.ko`, que se aplicarán al campo de entrada dependiendo de si el usuario existe en los datos obtenidos.
+
+En resumen, este código realiza una solicitud fetch para obtener datos de un archivo JSON, luego permite al usuario escribir un nombre de usuario en un campo de entrada y comprueba si ese usuario existe en los datos obtenidos, aplicando estilos visuales según la existencia o no del usuario en la base de datos JSON.

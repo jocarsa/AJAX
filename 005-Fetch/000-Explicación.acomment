@@ -1,0 +1,45 @@
+`fetch()` es una función incorporada en JavaScript que se utiliza para realizar solicitudes HTTP a recursos en la web, como archivos JSON, imágenes, CSS, archivos HTML, etc. Esta función es parte del estándar moderno de JavaScript y proporciona una forma más flexible y poderosa de hacer solicitudes HTTP en comparación con las técnicas anteriores, como XMLHttpRequest.
+
+La sintaxis básica de `fetch()` es la siguiente:
+
+```javascript
+fetch(url)
+  .then(response => {
+    // Manipulación de la respuesta
+  })
+  .catch(error => {
+    // Manejo de errores
+  });
+```
+
+Aquí hay una breve explicación de cómo funciona:
+
+1. **Parámetros:** `fetch()` toma al menos un parámetro obligatorio, que es la URL a la que se va a realizar la solicitud. También puede tomar un segundo parámetro opcional para configurar opciones como método, encabezados, cuerpo de la solicitud, entre otros.
+
+2. **Retorno de Promesa:** `fetch()` devuelve una Promesa que resuelve en un objeto `Response` una vez que se completa la solicitud. Esta promesa se puede encadenar con métodos `.then()` para manejar la respuesta recibida y convertirla en el formato deseado (JSON, texto, Blob, etc.).
+
+3. **Manipulación de la respuesta:** La respuesta de la solicitud se maneja en la primera función `.then()`, donde se puede acceder al objeto `Response`. Aquí es donde normalmente se realiza el procesamiento de la respuesta, como convertir la respuesta a JSON, leer datos del cuerpo de la respuesta, verificar el estado de la respuesta, etc.
+
+4. **Manejo de errores:** Si hay algún error en la solicitud (por ejemplo, problemas de red o un error HTTP), se captura en la función `.catch()`. Esto permite manejar cualquier error que pueda ocurrir durante el proceso de solicitud.
+
+Aquí hay un ejemplo simple de cómo se puede usar `fetch()` para obtener datos JSON de una URL:
+
+```javascript
+fetch('https://api.example.com/data')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('La solicitud no fue exitosa');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Hacer algo con los datos obtenidos (data)
+    console.log(data);
+  })
+  .catch(error => {
+    // Manejar cualquier error que ocurra durante la solicitud
+    console.error('Error:', error);
+  });
+```
+
+Es importante mencionar que `fetch()` sigue la política de CORS (Cross-Origin Resource Sharing), lo que significa que está sujeto a restricciones de seguridad cuando se realizan solicitudes a diferentes dominios. Además, en algunos navegadores más antiguos, `fetch()` no está disponible nativamente y puede requerir un polyfill o un uso alternativo.

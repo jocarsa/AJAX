@@ -1,0 +1,53 @@
+Claro, esta hoja de estilo CSS define el aspecto visual y el diseño de la interfaz del chat. Aquí está la explicación de cada parte:
+
+```css
+body, html {
+    background: grey; /* Establece el color de fondo para toda la página */
+    font-family: sans-serif; /* Define la familia de fuentes predeterminada para el texto */
+    height: 100%; /* Establece la altura del cuerpo y del HTML al 100% del tamaño de la ventana del navegador */
+    text-align: center; /* Centra el texto dentro del cuerpo y del HTML */
+}
+
+header, main {
+    max-width: 400px; /* Establece el ancho máximo para los elementos header y main */
+    background: white; /* Establece el color de fondo para los elementos header y main */
+    padding: 15px; /* Añade un espacio de relleno interno de 15px a los elementos header y main */
+    margin: auto; /* Centra los elementos header y main horizontalmente en la página */
+}
+
+main {
+    height: 70%; /* Establece la altura de la sección principal (main) al 70% del tamaño de la ventana del navegador */
+}
+
+input, button {
+    width: 100%; /* Establece el ancho de los campos de entrada (input) y botones al 100% del contenedor padre */
+    padding-top: 10px; /* Añade un espacio de relleno superior de 10px a los campos de entrada y botones */
+    padding-bottom: 10px; /* Añade un espacio de relleno inferior de 10px a los campos de entrada y botones */
+    margin-top: 20px; /* Añade un espacio superior de 20px a los campos de entrada y botones */
+}
+
+#chat {
+    height: 100%; /* Establece la altura del contenedor de chat al 100% del tamaño de su contenedor padre */
+}
+
+#contienemensajes {
+    height: 80%; /* Establece la altura del contenedor de mensajes al 80% de la altura de su contenedor padre */
+    border: 1px solid grey; /* Agrega un borde de 1px sólido de color gris alrededor del contenedor de mensajes */
+    overflow-y: scroll; /* Agrega una barra de desplazamiento vertical al contenedor de mensajes si es necesario */
+    margin-bottom: 10px; /* Añade un espacio inferior de 10px al contenedor de mensajes */
+}
+```
+
+Explicación paso a paso:
+
+1. `body, html`: Establece ciertas propiedades para el cuerpo y el HTML en general, como el color de fondo, la fuente y la altura completa de la ventana del navegador.
+
+2. `header, main`: Define estilos para el encabezado y la sección principal del chat, estableciendo un ancho máximo, un color de fondo, relleno interno y centrado horizontal.
+
+3. `main`: Define la altura de la sección principal del chat al 70% de la ventana del navegador.
+
+4. `input, button`: Establece estilos para los campos de entrada y botones, definiendo su ancho al 100% del contenedor padre y agregando relleno y márgenes.
+
+5. `#chat`: Establece la altura del contenedor del chat al 100% de su contenedor padre.
+
+6. `#contienemensajes`: Define estilos para el contenedor de mensajes, estableciendo su altura, agregando un borde, permitiendo el desplazamiento vertical si es necesario y añadiendo un margen inferior.

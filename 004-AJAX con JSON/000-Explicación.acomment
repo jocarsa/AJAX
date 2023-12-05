@@ -1,0 +1,44 @@
+La carga de archivos JSON con AJAX (Asynchronous JavaScript and XML) implica el uso de la técnica XMLHttpRequest (XHR) para realizar solicitudes HTTP asíncronas y obtener datos en formato JSON desde un servidor.
+
+Aquí hay un ejemplo básico de cómo cargar un archivo JSON utilizando AJAX:
+
+```javascript
+// Crear una instancia de XMLHttpRequest
+var xhr = new XMLHttpRequest();
+
+// Configurar la solicitud
+xhr.open('GET', 'ruta_del_archivo.json', true); // true para hacer la solicitud asincrónica
+
+// Configurar el tipo de respuesta esperada (en este caso, JSON)
+xhr.responseType = 'json';
+
+// Manejar la carga exitosa de la solicitud
+xhr.onload = function() {
+  // Comprobar si la solicitud fue exitosa
+  if (xhr.status === 200) {
+    // Acceder a los datos JSON obtenidos
+    var jsonData = xhr.response;
+    // Hacer algo con los datos JSON (por ejemplo, imprimirlos en la consola)
+    console.log(jsonData);
+  } else {
+    // Manejar errores si la solicitud no fue exitosa
+    console.error('Error al cargar el archivo JSON. Código de estado:', xhr.status);
+  }
+};
+
+// Manejar errores de red u otros errores
+xhr.onerror = function() {
+  console.error('Error de red al intentar cargar el archivo JSON.');
+};
+
+// Enviar la solicitud
+xhr.send();
+```
+
+Este código utiliza XMLHttpRequest para realizar una solicitud GET al archivo JSON especificado por la URL 'ruta_del_archivo.json'. La propiedad `responseType` se establece en 'json' para indicar que se espera una respuesta en formato JSON.
+
+Cuando la solicitud se completa, el evento `onload` se dispara. Se comprueba el estado de la solicitud (`xhr.status`) para asegurarse de que la respuesta fue exitosa (código de estado HTTP 200). En caso de éxito, los datos JSON se encuentran en `xhr.response` y se pueden manipular o utilizar según sea necesario.
+
+El evento `onerror` maneja cualquier error de red o problemas con la solicitud.
+
+Es importante tener en cuenta que el uso directo de XMLHttpRequest puede resultar más complejo y propenso a errores en comparación con métodos más modernos como `fetch()`, que ofrece una interfaz más simple y promesas nativas para manejar las solicitudes de manera más clara y concisa.

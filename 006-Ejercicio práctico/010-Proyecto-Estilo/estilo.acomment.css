@@ -1,0 +1,45 @@
+Claro, aquí están las novedades introducidas en la hoja de estilo CSS que has proporcionado:
+
+1. **Estilos generales para el documento (body, html):**
+   - `background: grey;` establece un fondo gris para todo el documento.
+   - `font-family: sans-serif;` define la familia de fuentes a utilizar para el texto como una fuente sin serifa (sans-serif).
+   - `height: 100%;` hace que el cuerpo y el HTML ocupen el 100% de la altura disponible en la ventana del navegador.
+   - `text-align: center;` centra el texto en el cuerpo del documento.
+
+2. **Estilos para encabezado y contenido principal (header, main):**
+   - `max-width: 400px;` establece un ancho máximo de 400 píxeles para el encabezado y el contenido principal.
+   - `background: white;` establece un fondo blanco para el encabezado y el contenido principal.
+   - `padding: 15px;` agrega un espacio interno de 15 píxeles alrededor del encabezado y el contenido principal.
+   - `margin: auto;` centra el encabezado y el contenido principal horizontalmente en la página.
+
+3. **Estilos específicos para el contenido principal (main):**
+   - `height: 70%;` define que el contenido principal ocupe el 70% de la altura disponible en el contenedor padre.
+
+4. **Estilos para campos de entrada y botones (input, button):**
+   - `width: 100%;` establece que los campos de entrada y los botones ocupen el 100% del ancho disponible de su contenedor.
+   - `padding-top: 10px; padding-bottom: 10px;` añade espacios internos de 10 píxeles arriba y abajo para los campos de entrada y botones.
+   - `margin-top: 20px;` agrega un margen superior de 20 píxeles para separar los elementos.
+
+5. **Estilos específicos para el contenedor del chat (#chat):**
+   - `height: 100%;` indica que el contenedor de chat debe ocupar el 100% de la altura disponible.
+
+6. **Estilos para el contenedor de mensajes (#contienemensajes):**
+   - `height: 80%;` define que el contenedor de mensajes ocupe el 80% de la altura disponible.
+   - `border: 1px solid grey;` crea un borde sólido de 1 píxel de grosor y color gris alrededor del contenedor de mensajes.
+   - `overflow-y: scroll;` habilita la barra de desplazamiento vertical en el contenedor si el contenido excede su altura.
+   - `margin-bottom: 10px;` agrega un margen inferior de 10 píxeles para separar el contenedor de mensajes de otros elementos.
+
+7. **Estilos para los mensajes individuales (.mensaje):**
+   - `width: 70%;` establece un ancho del 70% para los mensajes individuales.
+   - `background: rgb(200, 255, 200);` define un fondo verde claro para los mensajes.
+   - `padding: 10px;` añade un espacio interno de 10 píxeles alrededor del mensaje.
+   - `margin: 10px;` agrega un margen de 10 píxeles alrededor del mensaje para separarlo de otros mensajes.
+   - `text-align: left;` alinea el texto del mensaje a la izquierda.
+   - `font-size: 10px;` establece el tamaño de fuente del mensaje en 10 píxeles.
+   - `border-radius: 0px 10px 10px 10px;` agrega bordes redondeados solo en la esquina inferior derecha del mensaje.
+
+8. **Estilos para el texto dentro del mensaje (.texto):**
+   - `padding: 10px;` añade un espacio interno de 10 píxeles alrededor del texto dentro del mensaje.
+   - `font-size: 12px;` establece el tamaño de fuente del texto dentro del mensaje en 12 píxeles.
+
+Estos estilos definen la apariencia y el diseño de diferentes elementos en la página web, especialmente para un chat, con márgenes, tamaños de fuente, colores y disposición específicos.

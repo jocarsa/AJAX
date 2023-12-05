@@ -1,0 +1,37 @@
+En esta evolución del código, se han introducido más modificaciones para mejorar el manejo de la respuesta obtenida mediante la solicitud fetch. Aquí está el análisis de los cambios:
+
+```html
+<!doctype html>
+<html lang="es">
+    <head>
+        <title>Aprendiendo fetch</title>
+        <script>
+            window.onload = function(){
+                fetch("usuarios2.json")
+                    .then(function(response){
+                        return response.json()
+                    })
+                    .then(function(datos){
+                        console.log(datos)
+                    })
+            }
+        </script>
+    </head>
+    <body>
+    
+        
+    </body>
+</html>
+```
+
+En comparación con la versión anterior, aquí se ha agregado otro `.then()` que sigue al primero:
+
+```javascript
+.then(function(datos){
+    console.log(datos)
+})
+```
+
+Esto se añade después del primer `.then()` que convierte la respuesta a JSON. En este segundo `.then()`, se recibe el resultado de la conversión a JSON (los datos) y se ejecuta una función que utiliza esos datos. En este caso, se utiliza `console.log()` para imprimir los datos en la consola del navegador.
+
+En resumen, la adición del segundo `.then()` permite un manejo adicional de los datos obtenidos de la respuesta de la solicitud fetch. Una vez que se han convertido los datos a formato JSON, se pueden utilizar en una función para realizar acciones específicas, como mostrarlos en la consola del navegador, procesarlos para mostrar en la página web, o cualquier otra manipulación deseada.

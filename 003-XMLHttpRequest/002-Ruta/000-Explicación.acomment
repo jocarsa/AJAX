@@ -1,0 +1,72 @@
+Claro, este código HTML y JavaScript muestra cómo hacer una solicitud AJAX utilizando `XMLHttpRequest` para obtener datos desde el servidor y manipularlos una vez que se han recibido. Aquí está la explicación detallada paso a paso:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Aprendiendo AJAX</title>
+</head>
+<body>
+    <script>
+        // Se crea una instancia de XMLHttpRequest
+        const Peticion = new XMLHttpRequest();
+
+        // Se establece la ruta del archivo o recurso al que se hará la solicitud
+        const ruta = "datos.php";
+
+        // Se abre una conexión hacia el servidor usando el método GET y la ruta especificada
+        Peticion.open("GET", ruta);
+
+        // Se envía la solicitud al servidor
+        Peticion.send();
+
+        // Se establece un evento que se activa cada vez que cambia el estado de la solicitud
+        Peticion.onreadystatechange = function(e) {
+            // Se verifica si la solicitud ha completado todas las etapas
+            if (Peticion.readyState == 4) {
+                // Se verifica si la respuesta del servidor es exitosa (código de estado 200)
+                if (Peticion.status == 200) {
+                    // Si la respuesta es exitosa, se convierte la respuesta JSON a un objeto JavaScript
+                    var json = JSON.parse(Peticion.response);
+
+                    // Se imprime el objeto JSON en la consola del navegador
+                    console.log(json);
+
+                    // Se accede a un atributo específico del objeto JSON y se imprime en la consola
+                    console.log(json.nombre);
+                } else {
+                    // Si la respuesta no es exitosa, se muestra un mensaje de error en la consola
+                    console.error("Error:" + Peticion.status);
+                }
+            }
+        };
+    </script>
+</body>
+</html>
+```
+
+Explicación detallada del código:
+
+- Se comienza con la declaración del doctype (`<!DOCTYPE html>`) y la estructura básica de HTML (`<html>`, `<head>`, `<title>`, `<body>`).
+
+- Se incrusta JavaScript dentro de la etiqueta `<script>`. En este script, se crea una nueva instancia de XMLHttpRequest llamada `Peticion`.
+
+- Se define la ruta del archivo o recurso al que se hará la solicitud AJAX y se asigna a la variable `ruta`.
+
+- Utilizando `Peticion.open("GET", ruta);`, se configura la solicitud AJAX para hacer una petición GET a la ruta especificada.
+
+- `Peticion.send();` envía la solicitud al servidor.
+
+- `Peticion.onreadystatechange` es un evento que se activa cada vez que cambia el estado de la solicitud. Se verifica si la solicitud ha completado todas las etapas (`Peticion.readyState == 4`).
+
+- En caso de que la solicitud esté completa, se verifica si la respuesta del servidor es exitosa (`Peticion.status == 200`). Si es exitosa:
+
+  - Se convierte la respuesta JSON (`Peticion.response`) a un objeto JavaScript utilizando `JSON.parse()`.
+  
+  - Se imprime el objeto JSON completo en la consola del navegador mediante `console.log(json)`.
+
+  - Se accede a un atributo específico del objeto JSON (`json.nombre`) y se imprime en la consola.
+
+- Si la respuesta no es exitosa (código de estado diferente de 200), se muestra un mensaje de error en la consola usando `console.error("Error:" + Peticion.status)`.
+
+Este código realiza una solicitud GET a `datos.php`, espera la respuesta del servidor y maneja los datos obtenidos, especialmente si son JSON, para su posterior procesamiento o visualización.

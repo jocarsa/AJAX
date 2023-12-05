@@ -1,0 +1,84 @@
+Este código HTML y JavaScript presenta una interfaz de usuario que solicita datos de un servidor utilizando AJAX (Asynchronous JavaScript and XML) a través de `XMLHttpRequest`. El archivo PHP (`datos.php`) devuelve datos en formato JSON de forma dinámica según el valor ingresado en un campo de texto (`idcliente`). Aquí está la explicación paso a paso:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Aprendiendo AJAX</title>
+</head>
+<body>
+    <!-- Se crea un campo de texto para ingresar el ID del cliente -->
+    <input type="text" id="idcliente">
+    
+    <!-- Se muestra una tabla donde se llenarán los datos del cliente -->
+    <table border=1 width=50%>
+        <tr><td>Nombre de cliente:</td><td id="recibenombre"></td></tr>
+        <tr><td>Email de cliente:</td><td id="recibeemail"></td></tr>
+        <tr><td>Teléfono de cliente:</td><td id="recibetelefono"></td></tr>
+    </table>
+
+    <script>
+        // Se crea una instancia de XMLHttpRequest
+        const Peticion = new XMLHttpRequest();
+
+        // Se establece la ruta del archivo o recurso al que se hará la solicitud
+        const ruta = "datos.php"; 
+        
+        // Se asigna un evento al cambio del campo de texto
+        document.getElementById("idcliente").onchange = function(){
+            // Se construye una nueva ruta que incluye el ID del cliente como parámetro
+            var nuevaruta = ruta + "?cliente=" + document.getElementById("idcliente").value;
+            
+            // Se abre una conexión hacia el servidor usando el método GET y la nueva ruta
+            Peticion.open("GET", nuevaruta);
+            
+            // Se envía la solicitud al servidor
+            Peticion.send();
+        }
+
+        // Se establece un evento que se activa cada vez que cambia el estado de la solicitud
+        Peticion.onreadystatechange = function(e){
+            // Se verifica si la solicitud ha completado todas las etapas
+            if(Peticion.readyState == 4){
+                // Se verifica si la respuesta del servidor es exitosa (código de estado 200)
+                if(Peticion.status == 200){
+                    // Si la respuesta es exitosa, se convierte la respuesta JSON a un objeto JavaScript
+                    var json = JSON.parse(Peticion.response);
+
+                    // Se imprime el objeto JSON en la consola del navegador
+                    console.log(json);
+
+                    // Se actualizan los elementos HTML con los datos obtenidos del JSON
+                    document.getElementById("recibenombre").innerHTML = json.nombre;
+                    document.getElementById("recibeemail").innerHTML = json.email;
+                    document.getElementById("recibetelefono").innerHTML = json.telefono;
+                } else {
+                    // Si la respuesta no es exitosa, se muestra un mensaje de error en la consola
+                    console.error("Error:" + Peticion.status);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+```
+
+Explicación detallada del código:
+
+- Se comienza con la declaración del doctype y la estructura básica de HTML.
+
+- Se crea un campo de texto (`<input type="text" id="idcliente">`) donde se puede ingresar el ID del cliente.
+
+- Se muestra una tabla HTML (`<table>`) con tres filas que se llenarán con los datos del cliente (nombre, email, teléfono). Los datos se insertarán dinámicamente en las celdas correspondientes (`<td>`) con identificadores específicos (`recibenombre`, `recibeemail`, `recibetelefono`).
+
+- Dentro del script de JavaScript:
+  - Se crea una instancia de `XMLHttpRequest` llamada `Peticion`.
+  - Se establece la ruta del archivo PHP a la que se realizará la solicitud AJAX.
+  - Se asigna un evento al cambio del campo de texto (`idcliente`). Cuando este cambia, se construye una nueva ruta que incluye el valor del ID del cliente como parámetro y se realiza una solicitud GET a esa ruta.
+  - Se establece un evento `onreadystatechange` que se activa cada vez que cambia el estado de la solicitud. Cuando la solicitud está completa (`readyState == 4`):
+    - Se verifica si la respuesta del servidor es exitosa (`status == 200`).
+    - Si la respuesta es exitosa, se convierte la respuesta JSON a un objeto JavaScript.
+    - Se actualizan los elementos HTML con los datos obtenidos del JSON, colocando el nombre del cliente en `recibenombre`, el email en `recibeemail` y el teléfono en `recibetelefono`.
+    - Si la respuesta no es exitosa, se muestra un mensaje de error en la consola del navegador.
+
+En resumen, este código permite al usuario ingresar el ID de un cliente y, al hacerlo, envía una solicitud al servidor para obtener los datos correspondientes en formato JSON. Luego, muestra estos datos dinámicamente en una tabla HTML en la página web.
