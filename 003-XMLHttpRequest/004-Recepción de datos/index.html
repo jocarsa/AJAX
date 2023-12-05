@@ -11,7 +11,10 @@
             Peticion.send();
             
             Peticion.onreadystatechange = function(e){
-                console.log(Peticion.responseText);
+                console.log(Peticion.readyState);
+                console.log(Peticion.status);
+                
+                console.log("---------")
             }
         </script>
     </body>
